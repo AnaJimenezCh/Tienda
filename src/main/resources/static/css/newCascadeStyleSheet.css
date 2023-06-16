@@ -1,0 +1,15 @@
+#tituloPrincipal{
+    color: blueviolet;
+    font-size: 30px;
+    font-family: Times new roman;
+}
+.parrafosEjemplo{
+    color:greenyellow;
+font-weight: bold;    
+    }
+    .parrafoSecundario{
+        color: silver;
+    }
+    p{
+        color:brown;
+    }
