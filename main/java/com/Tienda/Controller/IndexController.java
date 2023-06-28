@@ -14,7 +14,7 @@ public class IndexController {
     
     @RequestMapping("/")
     public String page(Model model) {
-        model.addAttribute("mensaje", "Hola desde el controllador");
+        model.addAttribute("mensaje", "Hola desde el controllador hoy");
         return "index";
     }
     
