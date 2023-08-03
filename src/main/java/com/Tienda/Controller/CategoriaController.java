@@ -23,12 +23,16 @@ public class CategoriaController {
     @Autowired
     CategoriaService categoriaService;
     
-    @GetMapping("/listado")
-    public String page(Model model) {
+      @Autowired
+    private FirebaseStorageServiceImpl firebaseStorageService;
+    
+   @GetMapping("/listado")
+    public String inicio(Model model) {
         log.info("Consumienod el recurso /categoria/listado");
         List<Categoria> categorias = categoriaService.getCategorias(false);
+       
         model.addAttribute("categorias", categorias);
-        model.addAttribute("totalcategorias", categorias.size());
+        model.addAttribute("totalCategorias", categorias.size());
         return "/categoria/listado";
     }
 @GetMapping("/nuevo")
@@ -36,9 +40,7 @@ public class CategoriaController {
         return "/categoria/modifica";
     }
 
-    @Autowired
-    private FirebaseStorageServiceImpl firebaseStorageService;
-    
+  
     @PostMapping("/guardar")
     public String categoriaGuardar(Categoria categoria,
             @RequestParam("imagenFile") MultipartFile imagenFile) {        
