@@ -25,7 +25,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class UsuarioDetailsServiceImpl implements UsuarioDetailsService, UserDetailsService{
 
     @Autowired
-   private UsuarioDao UsuarioDao; 
+   private UsuarioDao usuarioDao; 
     
     @Autowired
     private HttpSession session;
@@ -33,7 +33,7 @@ public class UsuarioDetailsServiceImpl implements UsuarioDetailsService, UserDet
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-      Usuario usuario = UsuarioDao.findByUsername(username);
+      Usuario usuario = usuarioDao.findByUsername(username);
       
       if(usuario == null){
           throw new UsernameNotFoundException("El usuario" + username +"No existe");

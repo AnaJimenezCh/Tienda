@@ -37,6 +37,7 @@ public class ProductoController {
         log.info("Consumiendo el recurso /producto/listado");
         List<Producto> productos = productoService.getProductos(false);
         List<Categoria> categorias = categoriaservice.getCategorias(true);
+        
         model.addAttribute("productos", productos);
         model.addAttribute("categorias", categorias);
         model.addAttribute("totalProductos", productos.size());

@@ -81,7 +81,7 @@ public class PruebasController {
         model.addAttribute("totalProductos", productos.size());
         model.addAttribute("precioInf", precioInf);
         model.addAttribute("precioSup", precioSup);
-        return "/pruebas/listado2";
+        return "/pruebas/listado";
     }   
     }
 
