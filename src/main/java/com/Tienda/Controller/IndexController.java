@@ -3,6 +3,7 @@ package com.Tienda.Controller;
 
 import com.Tienda.dao.UsuarioDao;
 import com.Tienda.domain.Usuario;
+import com.Tienda.service.ProductoService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -19,10 +20,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IndexController {
     
    @Autowired
-    UsuarioDao usuarioDao;
+    ProductoService productoService;
     
     @RequestMapping("/")
-    public String page(Model model, HttpSession session){ 
+    public String page(Model model, HttpSession session){
+         var listaProductos = productoService.getProductos(true);
+        model.addAttribute("productos", listaProductos);
    // String imagen = (String)session.getAttribute("usuarioImagen");
      //  model.addAttribute("avatar", "imagen");
        
